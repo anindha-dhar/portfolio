@@ -1994,38 +1994,6 @@ button:hover .button-text {
   transform: translateY(8px);
 }
 
-.button-batman:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: 0px 0 0 0 white;
-  transition: all 2s ease;
-}
-
-.button-batman:hover:after {
-  box-shadow: 0px -18px 70px 18px #ffffffa6; /* Increased shadow size */
-}
-
-.button-batman span {
-  position: absolute;
-  width: 100%;
-  font-size: 20px; /* Increased from 15px */
-  font-weight: bold; /* Changed from 100 to bold */
-  left: 50%;
-  top: 39%;
-  letter-spacing: 3px;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  color: black;
-  transition: all 2s ease;
-}
-
-.button-batman:hover span {
-  color: white;
-}
-
 .button-batman:before {
   content: "";
   position: absolute;
@@ -2036,8 +2004,61 @@ button:hover .button-text {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: all 1s ease;
+  /* Remove animation here */
 }
 
-.button-batman:hover:before {
+.button-batman.animate:before {
+  animation: batman-fill 2s forwards;
+}
+
+@keyframes batman-fill {
+  to {
+    width: 100%;
+  }
+}
+
+.button-batman:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0px 0 0 0 white;
+  transition: all 2s ease;
+  /* Remove animation here */
+}
+
+.button-batman.animate:after {
+  animation: batman-shadow 2s forwards;
+}
+
+@keyframes batman-shadow {
+  to {
+    box-shadow: 0px -18px 70px 18px #ffffffa6;
+  }
+}
+
+.button-batman span {
+  position: absolute;
   width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  left: 50%;
+  top: 39%;
+  letter-spacing: 3px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  color: white;
+  transition: all 2s ease;
+  /* Remove animation here */
+}
+
+.button-batman.animate span {
+  animation: batman-text 2s forwards;
+}
+
+@keyframes batman-text {
+  to {
+    color: white;
+  }
 }
