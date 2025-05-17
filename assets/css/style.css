@@ -2428,3 +2428,253 @@ input[type="radio"] {
   color: inherit;
   display: inline-block;
 }
+
+/* Project Box  */
+
+.project-container {
+  width: 90vw; /* 90% of viewport width */
+  max-width: 800px; /* Maximum width for larger screens */
+  min-width: 300px; /* Minimum width for smaller screens */
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid #3498db;
+}
+
+.project-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-container h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px dashed #3498db;
+}
+
+.project-container p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.project-container .label {
+  font-weight: bold;
+  color: #a13908;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-container {
+    padding: 15px;
+  }
+
+  .project-container h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-container p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-container {
+    padding: 10px;
+  }
+
+  .project-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-container p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Slider Project  */
+
+.slider-container-project {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  height: 540px;
+}
+
+.slider {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures full image visibility without cropping */
+  object-position: center;
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Hide radio inputs */
+input[type="radio"] {
+  display: none;
+}
+
+/* Show slide when corresponding radio is checked */
+#slide1:checked ~ .slider .s1,
+#slide2:checked ~ .slider .s2,
+#slide3:checked ~ .slider .s3 {
+  opacity: 1;
+}
+
+/* Animation for auto-play slides (3 slides, 5s each, total 15s) */
+@keyframes slideShow {
+  0%,
+  33.33% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Apply animation to slides with delay */
+.s1 {
+  animation: slideShow 15s infinite;
+}
+.s2 {
+  animation: slideShow 15s infinite 5s;
+}
+.s3 {
+  animation: slideShow 15s infinite 10s;
+}
+
+/* Navigation dots */
+.dots {
+  text-align: center;
+  padding: 10px 0;
+  background: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Highlight dot when corresponding radio is checked */
+#slide1:checked ~ .slider ~ .dots .d1,
+#slide2:checked ~ .slider ~ .dots .d2,
+#slide3:checked ~ .slider ~ .dots .d3 {
+  background: #333;
+}
+
+/* Animation for auto-play dots (3 slides, 5s each, total 15s) */
+@keyframes dotShow {
+  0%,
+  33.33% {
+    background: #333;
+  }
+  40%,
+  100% {
+    background: #bbb;
+  }
+}
+
+/* Apply animation to dots with delay */
+.d1 {
+  animation: dotShow 15s infinite;
+}
+.d2 {
+  animation: dotShow 15s infinite 5s;
+}
+.d3 {
+  animation: dotShow 15s infinite 10s;
+}
+
+.dot:hover {
+  background: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slider-container-project {
+    height: 340px;
+  }
+
+  .slider {
+    height: 300px;
+  }
+
+  .caption {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-container-project {
+    height: 240px;
+  }
+
+  .slider {
+    height: 200px;
+  }
+
+  .caption {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+  }
+}
